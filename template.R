@@ -45,3 +45,19 @@ shinyApp(ui = ui, server = server)
 ## http://www.stat.umn.edu/geyer/old/5101/rlook.html 
 ## binomial ( 2 ) , normal ( 2 ) , poisson ( 1 ) , uniform ( 2 )  
 ## use the r functions 
+
+## dropdown of chosen distribution 
+## something to enter parameters of pop distrubution 
+## sample size and number of samples using slide bar (sample size [e.g. 30] vs. number of samples [how many data points])
+## display 
+## mean, variance 
+## overlay theoretical normal distribution function 
+
+## For next week: 
+## using base R 
+## takes a sample from a normal distribution
+## show that the sample means also follow a normal distribution.
+
+## Mean of sample distribution = mu
+## variance of sample distribution = var/sample size
+#### Sigma/sample size
