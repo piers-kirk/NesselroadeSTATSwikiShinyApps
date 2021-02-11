@@ -36,3 +36,12 @@ shinyApp(ui = ui, server = server)
 ## https://shiny.rstudio.com/tutorial/#written-tutorials 
 ##
 ################################################################
+
+## To Dos
+## the app should show sampling from non-normal distributions in addition 
+## to normal distribution + plotting should include sample means as opposed to normal 
+## functions to consider: rnorm - see documentation: 
+## lamda - per unit time what is the average amount of occurences that you think will happen
+## http://www.stat.umn.edu/geyer/old/5101/rlook.html 
+## binomial ( 2 ) , normal ( 2 ) , poisson ( 1 ) , uniform ( 2 )  
+## use the r functions 
