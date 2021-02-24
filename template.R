@@ -41,13 +41,13 @@ shinyApp(ui = ui, server = server)
 ## the app should show sampling from non-normal distributions in addition 
 ## to normal distribution + plotting should include sample means as opposed to normal 
 ## functions to consider: rnorm - see documentation: 
-## lamda - per unit time what is the average amount of occurences that you think will happen
+## lamda - per unit time what is the average amount of occurrences that you think will happen
 ## http://www.stat.umn.edu/geyer/old/5101/rlook.html 
 ## binomial ( 2 ) , normal ( 2 ) , poisson ( 1 ) , uniform ( 2 )  
 ## use the r functions 
 
-## dropdown of chosen distribution 
-## something to enter parameters of pop distrubution 
+## drop-down of chosen distribution 
+## something to enter parameters of pop distribution 
 ## sample size and number of samples using slide bar (sample size [e.g. 30] vs. number of samples [how many data points])
 ## display 
 ## mean, variance 
