@@ -1,7 +1,6 @@
 set.seed(1) ## every random value produced will be the same
 population_size = 100000
 
-
 ### each column contains a vector representing a different pop dist the user can choose from
 distributions_df <- data.frame(
   "Bernoulli" = rbinom(population_size, size = 1, prob = 0.63),
@@ -32,8 +31,8 @@ sampling_distribution <- function(pop_dist, number_of_samples, sample_size) {
 
 ## x/y lim = c(??, ??)
 create_histograms <- function(dist_type, pop_dist, sample_mean) {
-  hist(pop_dist, main=paste(dist_type, "Population Distribution"),
-       xlab="Frequency", col="DarkCyan", labels=T)
+  #hist(pop_dist, main=paste(dist_type, "Population Distribution"),
+  #     xlab="Frequency", col="DarkCyan", labels=T)
   hist(sample_mean, main=paste(dist_type, "Sampling Distribution"),
        xlab="Frequency", col="DarkGreen", labels=T)
 }
@@ -52,3 +51,7 @@ input_to_hist(distributions_list, "F", 1000, 100)
 ## left 2 do
 #### distribution names
 #### personalizing histograms: see create_histograms()
+#### in template.r, you must address the fact you are returning 2 histograms
+#### issue with the labels not fitting within the image 
+#### getting errors that x must be numeric for some variables but not others 
+#### function not updating when slide bar is moved, same error - x must be numeric 

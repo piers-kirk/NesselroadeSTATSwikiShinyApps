@@ -20,16 +20,16 @@ ui <- fluidPage(
     "Distribution:",
     
     c(
-      "Bernoulli" = "bern_",
-      "Bimodal" = "bimod_",
-      "Binomial" = "binom_",
-      "Chi-Square" = "chi_",
-      "F" = "f_",
-      "Logistic" = "log_",
-      "Normal Distribution (Gaussian)" = "norm_",
-      "Poisson" = "pois_",
-      "Student t" = "stu_t",
-      "Uniform" = "uni_"
+      "Bernoulli" = "Bernoulli",
+      "Bimodal" = "Bimodal",
+      "Binomial" = "Binomial",
+      "Chi-Square" = "Chi-Square",
+      "F" = "F",
+      "Logistic" = "Logistic",
+      "Normal Distribution (Gaussian)" = "Normal Distribution (Gaussian)",
+      "Poisson" = "Poisson",
+      "Student t" = "Student t",
+      "Uniform" = "Uniform"
     )
   ), 
   
@@ -64,9 +64,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$hist <- renderPlot({
-    hist(rnorm(n = input$sample_size), main = "Central Limit Theorem", 
-         xlab = "", ylab = "Number of Samples", col = "Darkcyan",
-         xlim = c(-5,5), labels = T)
+    input_to_hist(distributions_list, input$distribution, num_of_samples, sample_size)
   })
 }
 
