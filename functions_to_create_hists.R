@@ -1,6 +1,7 @@
 set.seed(1) ## every random value produced will be the same
 population_size = 100000
 
+
 ### each column contains a vector representing a different pop dist the user can choose from
 distributions_df <- data.frame(
   "Bernoulli" = rbinom(population_size, size = 1, prob = 0.63),
@@ -29,14 +30,25 @@ sampling_distribution <- function(pop_dist, number_of_samples, sample_size) {
   return(sample_mean)
 }
 
-## create_histograms <- function(pop_dist, sample_mean) {
-##  hist(pop_dist); hist(sample_mean)
-## }
+## x/y lim = c(??, ??)
+create_histograms <- function(dist_type, pop_dist, sample_mean) {
+  hist(pop_dist, main=paste(dist_type, "Population Distribution"),
+       xlab="Frequency", col="DarkCyan", labels=T)
+  hist(sample_mean, main=paste(dist_type, "Sampling Distribution"),
+       xlab="Frequency", col="DarkGreen", labels=T)
+}
 
 input_to_hist <- function(dist_list, dist_type, number_of_samples, sample_size) {
-      hist(unlist(dist_list[dist_type]))
-      hist(sampling_distribution(unlist(dist_list[dist_type]), number_of_samples, sample_size))
+  create_histograms(
+      dist_type,
+      unlist(dist_list[dist_type]),
+      sampling_distribution(unlist(dist_list[dist_type]), number_of_samples, sample_size)
+    )
   }
 
 input_to_hist(distributions_list, "F", 1000, 100)
 
+
+## left 2 do
+#### distribution names
+#### personalizing histograms: see create_histograms()
