@@ -55,3 +55,5 @@ input_to_hist(distributions_list, "F", 1000, 100)
 #### issue with the labels not fitting within the image 
 #### getting errors that x must be numeric for some variables but not others 
 #### function not updating when slide bar is moved, same error - x must be numeric 
+#### write function descriptions 
+#### decide on default params for pop dists vectors 
