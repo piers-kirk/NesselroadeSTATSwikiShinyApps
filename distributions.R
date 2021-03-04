@@ -99,13 +99,6 @@ sample_means_bimodal <- sampling_distribution(bimodal_vec_3)
 hist(sample_means_bimodal)
 mean(sample_means_bimodal)
 sd(sample_means_bimodal)
-##############################################
-##############################################
-##############################################
-
-## FOR NEXT WEEK:
-### create R Shiny app that uses 1 distribution, 
-### include pop values, sample size and number of samples 
 
 ################################################################
 ################################################################
@@ -154,3 +147,4 @@ sd(sample_means_bimodal)
 ################################################################
 
 
+    
