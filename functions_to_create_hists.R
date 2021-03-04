@@ -19,7 +19,7 @@ distributions_df <- data.frame(
 )
 
 distributions_list = lapply(distributions_df, as.numeric) ## converting df to list 
-
+distributions_list
 ## returns a vector of sample means sampled from a given population distribution
 sampling_distribution <- function(pop_dist, number_of_samples, sample_size) {
   sample_mean <- c()
@@ -31,10 +31,11 @@ sampling_distribution <- function(pop_dist, number_of_samples, sample_size) {
 
 ## x/y lim = c(??, ??)
 create_histograms <- function(dist_type, pop_dist, sample_mean) {
-  #hist(pop_dist, main=paste(dist_type, "Population Distribution"),
-  #     xlab="Frequency", col="DarkCyan", labels=T)
+  par(mfrow=c(1,2)) ## this is global
+  hist(pop_dist, main=paste(dist_type, "Population Distribution"),
+       xlab="Frequency", col="DarkCyan", labels=T)
   hist(sample_mean, main=paste(dist_type, "Sampling Distribution"),
-       xlab="Frequency", col="DarkGreen", labels=T)
+      xlab="Frequency", col="DarkGreen", labels=T)
 }
 
 input_to_hist <- function(dist_list, dist_type, number_of_samples, sample_size) {
@@ -57,3 +58,7 @@ input_to_hist(distributions_list, "F", 1000, 100)
 #### function not updating when slide bar is moved, same error - x must be numeric 
 #### write function descriptions 
 #### decide on default params for pop dists vectors 
+#### probability - y axis // function 
+#### no x axis label - p -> p(x) 
+#### student t should be student's t 
+
