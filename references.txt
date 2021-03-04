@@ -1,0 +1,2 @@
+https://shiny.rstudio.com/articles/sliders.html 
+https://shiny.rstudio.com/reference/shiny/latest/selectInput.html 
