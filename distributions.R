@@ -1,15 +1,20 @@
 #### Modeling the CLT with different distributions
-#### Piers Kirk, 02.24.21
-set.seed(1) ## every random value produced will be the same 
+#### Piers Kirk, August 2021
+
+set.seed(1) ## ensures that the same random numbers are produced for re-runs of the program  
 population_size = 10000
 number_of_samples = 10000
 sample_size = 60
+
+## jbstatistics: Sampling Distributions: Introduction to the Concept - https://www.youtube.com/watch?v=Zbw-YvELsaM
+## the sampling distribution of a statistic is the probability distribution of that statistic 
+## in other words, it is the distribution of that statistic if we were to repeatedly draw samples from the population
 
 ## returns a vector of sample means sampled from a given population distribution
 sampling_distribution <- function(pop_dist) {
   sample_mean <- c()
   for (i in 1:number_of_samples) { 
-    sample_mean[i] = mean(sample(pop_dist, size=sample_size, replace = F))
+    sample_mean[i] = mean(sample(pop_dist, size=sample_size, replace = F)) ## "Without replacement means the same item cannot be selected more than once." https://ltcconline.net/greenl/courses/102/Probability/permutations_and_combinations.html
   }
   return(sample_mean)
 }
@@ -22,8 +27,19 @@ sampling_distribution <- function(pop_dist) {
 ##############################################
 ################## Bernoulli #################
 ##############################################
-## one T/F question on a quiz 
-bern_dist_vec <- rbinom(population_size, size = 1, prob=0.63) ## the expected value of b dist is the prob of success 
+## 365 Data Science: Bernoulli Distribution - https://www.youtube.com/watch?v=nl9WiZMZnYs 
+## any event where we have only ONE trial and TWO outcomes follows a Bernoulli distribution
+## e.g. a coin flip, a single T/F quiz question, deciding to vote Democrat or Republican on a ballet 
+## we either have the probability of one of the events occurring (p) OR have past data indicating some experimental probability 
+## graph of a Bernoulli distribution consists of TWO bars, ONE for each of the possible outcomes 
+## one bar will rise up to its associated probability of p, the other bar will only reach 1-p 
+## for Bernoulli distributions we have to assign which outcome is zero and which outcome is one 
+## from here, we can calculate the expected value 
+## our expected value will be equal to p or 1-p depending on how we assign zero and one 
+## conventionally one is assigned to the event with probability equal to p 
+## the expected value expressed the likelihood of the favored event 
+## the variance of Bernoulli events is always p(1-p)
+bern_dist_vec <- rbinom(population_size, size = 1, prob=0.63) ## the expected value of Bernoulli distribution is the probability of success 
 sample_means_bern <- sampling_distribution(bern_dist_vec) 
 hist(bern_dist_vec); hist(sample_means_bern) ## expected value does not imply it ever happens
 ##############################################
