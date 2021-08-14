@@ -1,7 +1,9 @@
 ## 08.14.21
 ## Piers Kirk, pfk3jd
 
-source("/Users/pierskirk/Documents/GitHub/NesselroadeSTATSwikiShinyApps/functions_to_create_hists.R")
+source(
+  "/Users/pierskirk/Documents/GitHub/NesselroadeSTATSwikiShinyApps/functions_to_create_hists.R"
+)
 library(shiny)
 
 ui <- fluidPage(
@@ -18,7 +20,7 @@ ui <- fluidPage(
       "Logistic" = "logistic",
       "Normal Distribution (Gaussian)" = "gaussian",
       "Poisson" = "poisson",
-      "Student t" = "student_t",
+      "Student's t" = "students_t",
       "Uniform" = "uniform"
     )
   ),
@@ -50,7 +52,7 @@ ui <- fluidPage(
                        value = 0.5,
                        step = 0.01
                      ),
-                   ), ),
+                   ),),
   ## INPUT SOMETHING FOR BIMODAL
   conditionalPanel(condition = "input.distribution=='binomial'",
                    sidebarPanel(
@@ -70,8 +72,8 @@ ui <- fluidPage(
                        value = 1,
                        step = 10
                      ),
-                   ), ),
-  conditionalPanel(condition = "input.distribution=='chi_square'|input.distribution=='student_t'",
+                   ),),
+  conditionalPanel(condition = "input.distribution=='chi_square'|input.distribution=='students_t'",
                    sidebarPanel(
                      sliderInput(
                        inputId = "df",
@@ -81,7 +83,7 @@ ui <- fluidPage(
                        value = 1,
                        step = 1
                      ),
-                   ), ),
+                   ),),
   conditionalPanel(condition = "input.distribution=='f'",
                    sidebarPanel(
                      sliderInput(
@@ -100,7 +102,7 @@ ui <- fluidPage(
                        value = 1,
                        step = 1
                      ),
-                   ), ),
+                   ),),
   conditionalPanel(condition = "input.distribution=='logistic'",
                    sidebarPanel(
                      sliderInput(
@@ -119,7 +121,7 @@ ui <- fluidPage(
                        value = 1,
                        step = 0.5
                      ),
-                   ), ),
+                   ),),
   conditionalPanel(condition = "input.distribution=='gaussian'",
                    sidebarPanel(
                      sliderInput(
@@ -138,7 +140,7 @@ ui <- fluidPage(
                        value = 1,
                        step = 0.5
                      ),
-                   ), ),
+                   ),),
   conditionalPanel(condition = "input.distribution=='poisson'",
                    sidebarPanel(
                      sliderInput(
@@ -149,35 +151,45 @@ ui <- fluidPage(
                        value = 1,
                        step = 0.5
                      ),
-                   ), ),
-  conditionalPanel(
-    condition = "input.distribution=='uniform'",
-    sidebarPanel(
-      sliderInput(
-        inputId = "range",
-        label = "Range",
-        min = 1,
-        max = 100,
-        value = c(1, 10),
-        step = 1,
-        dragRange = TRUE,
-      ),
-    ),
-  ),
+                   ),),
+  conditionalPanel(condition = "input.distribution=='uniform'",
+                   sidebarPanel(
+                     sliderInput(
+                       inputId = "range",
+                       label = "Range",
+                       min = 1,
+                       max = 100,
+                       value = c(1, 10),
+                       step = 1,
+                       dragRange = TRUE,
+                     ),
+                   ),),
   mainPanel(plotOutput(outputId = "my_hist"))
 )
 
 server <- function(input, output) {
-  output$my_hist <- renderPlot({ 
+  output$my_hist <- renderPlot({
     if (input$distribution == 'bernoulli') {
-      bern_dist_vec <- rbinom(population_size, size = 1, prob=input$prob)
-      sample_means_bern <- sampling_distribution(bern_dist_vec, input$num_of_samples, input$sample_size) 
-      hist(bern_dist_vec) 
+      dist_vec <- rbinom(population_size, size = 1, prob = input$prob)
+      sample_vec <- 
+        sampling_distribution(bern_dist_vec, input$num_of_samples, input$sample_size)
     } else {
       hist(20, 20)
     }
-    print("END")
-    })
+    create_histograms(input$distribution, dist_vec, sample_vec)
+  })
 }
 
 shinyApp(ui = ui, server = server)
+
+## ToDos:
+#### UI: 
+###### implement bimodal distribution 
+###### display consistency, the histograms should be displayed in the same place regardless of distribution type
+###### confirm parameters of scales for each distribution type (meeting)
+###### decide on default values for scales (meeting)
+#### Server:
+###### implement histograms for remaining distributions 
+
+
+
