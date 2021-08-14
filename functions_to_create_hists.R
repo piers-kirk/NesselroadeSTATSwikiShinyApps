@@ -1,6 +1,8 @@
 ## 08.14.21
 ## Piers Kirk, pfk3jd
 
+library(stringr)
+
 set.seed(1)
 population_size = 100000
 
@@ -18,14 +20,14 @@ create_histograms <- function(dist_type, pop_dist, sample_mean) {
   par(mfcol = c(1, 2))
   hist(
     pop_dist,
-    main = paste(dist_type, "Population Distribution"),
+    main = paste(str_to_title(dist_type), "Population Distribution"),
     xlab = "Frequency",
     col = "DarkCyan",
     labels = F
   )
   hist(
     sample_mean,
-    main = paste(dist_type, "Sampling Distribution"),
+    main = paste(str_to_title(dist_type), "Sampling Distribution"),
     xlab = "Frequency",
     col = "DarkGreen",
     labels = F

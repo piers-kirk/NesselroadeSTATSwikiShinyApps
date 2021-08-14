@@ -24,26 +24,24 @@ ui <- fluidPage(
       "Uniform" = "uniform"
     )
   ),
-  sidebarPanel(
-    sliderInput(
-      inputId = "num_of_samples",
-      label = "Number of Samples",
-      min = 1,
-      max = 10000,
-      value = 10,
-      step = 1
-    ),
-    sliderInput(
-      inputId = "sample_size",
-      label = "Sample Size",
-      min = 1,
-      max = 10000,
-      value = 10,
-      step = 1
-    ),
-  ),
   conditionalPanel(condition = "input.distribution=='bernoulli'",
                    sidebarPanel(
+                     sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
                      sliderInput(
                        inputId = "prob",
                        label = "Probability",
@@ -53,9 +51,43 @@ ui <- fluidPage(
                        step = 0.01
                      ),
                    ),),
-  ## INPUT SOMETHING FOR BIMODAL
+  conditionalPanel(condition = "input.distribution=='bimodal'",
+                   sidebarPanel(
+                     sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                   ),),
   conditionalPanel(condition = "input.distribution=='binomial'",
                    sidebarPanel(
+                     sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
                      sliderInput(
                        inputId = "prob",
                        label = "Probability",
@@ -76,6 +108,22 @@ ui <- fluidPage(
   conditionalPanel(condition = "input.distribution=='chi_square'|input.distribution=='students_t'",
                    sidebarPanel(
                      sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
                        inputId = "df",
                        label = "Degrees of Freedom",
                        min = 1,
@@ -86,6 +134,22 @@ ui <- fluidPage(
                    ),),
   conditionalPanel(condition = "input.distribution=='f'",
                    sidebarPanel(
+                     sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
                      sliderInput(
                        inputId = "df_1",
                        label = "Degrees of Freedom 1",
@@ -106,6 +170,22 @@ ui <- fluidPage(
   conditionalPanel(condition = "input.distribution=='logistic'",
                    sidebarPanel(
                      sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
                        inputId = "location",
                        label = "Location (Mean)",
                        min = 1,
@@ -124,6 +204,22 @@ ui <- fluidPage(
                    ),),
   conditionalPanel(condition = "input.distribution=='gaussian'",
                    sidebarPanel(
+                     sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
                      sliderInput(
                        inputId = "mean",
                        label = "Mean",
@@ -144,6 +240,22 @@ ui <- fluidPage(
   conditionalPanel(condition = "input.distribution=='poisson'",
                    sidebarPanel(
                      sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
                        inputId = "lambda",
                        label = "Lambda",
                        min = 1,
@@ -154,6 +266,22 @@ ui <- fluidPage(
                    ),),
   conditionalPanel(condition = "input.distribution=='uniform'",
                    sidebarPanel(
+                     sliderInput(
+                       inputId = "num_of_samples",
+                       label = "Number of Samples",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sample_size",
+                       label = "Sample Size",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
                      sliderInput(
                        inputId = "range",
                        label = "Range",
@@ -185,9 +313,9 @@ shinyApp(ui = ui, server = server)
 ## ToDos:
 #### UI: 
 ###### implement bimodal distribution 
-###### display consistency, the histograms should be displayed in the same place regardless of distribution type
 ###### confirm parameters of scales for each distribution type (meeting)
 ###### decide on default values for scales (meeting)
+###### are names needed for each distribution title? (meeting)
 #### Server:
 ###### implement histograms for remaining distributions 
 
