@@ -22,14 +22,12 @@ create_histograms <- function(dist_type, pop_dist, sample_mean) {
     pop_dist,
     main = paste(str_to_title(dist_type), "Population Distribution"),
     xlab = "Frequency",
-    col = "DarkCyan",
-    labels = F
+    col = "DarkCyan"
   )
   hist(
     sample_mean,
     main = paste(str_to_title(dist_type), "Sampling Distribution"),
     xlab = "Frequency",
-    col = "DarkGreen",
-    labels = F
+    col = "DarkGreen"
   )
 }
