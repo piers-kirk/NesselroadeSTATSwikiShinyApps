@@ -359,6 +359,6 @@ shinyApp(ui = ui, server = server)
 #### UI:
 ###### confirm parameters of scales for each distribution type (meeting)
 ###### decide on default values for scales (meeting)
-###### are names needed for each distribution title? (meeting)
 #### Server:
 ###### implement bimodal distribution
+###### histogram appearance: y / x axis labels + title and diameters
