@@ -1,6 +1,7 @@
-## Central Limit Theorem 
-## 08.14.21
+## The Law of Large Numbers
+## 08.20.21
 ## Piers Kirk, pfk3jd
+
 
 source(
   "/Users/pierskirk/Documents/GitHub/NesselroadeSTATSwikiShinyApps/functions_to_create_hists.R"
@@ -8,7 +9,7 @@ source(
 library(shiny)
 
 ui <- fluidPage(
-  titlePanel("The Central Limit Theorem"),
+  titlePanel("The Law of Large Numbers"),
   selectInput(
     inputId = "distribution",
     label = "Distribution:",
@@ -356,10 +357,5 @@ server <- function(input, output) {
 
 shinyApp(ui = ui, server = server)
 
-## ToDos:
-#### UI:
-###### confirm parameters of scales for each distribution type (meeting)
-###### decide on default values for scales (meeting)
-#### Server:
-###### implement bimodal distribution
-###### histogram appearance: y / x axis labels + title and diameters
+## ToDos
+#### Identify what we want to include in the graphics for this page. (meeting)
