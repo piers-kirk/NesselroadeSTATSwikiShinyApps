@@ -72,6 +72,38 @@ ui <- fluidPage(
                        value = 10,
                        step = 1
                      ),
+                     sliderInput(
+                       inputId = "mean1",
+                       label = "Mean 1",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sd1",
+                       label = "Standard Deviation 1",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "mean2",
+                       label = "Mean 2",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
+                     sliderInput(
+                       inputId = "sd2",
+                       label = "Standard Deviation 2",
+                       min = 1,
+                       max = 10000,
+                       value = 10,
+                       step = 1
+                     ),
                    ), ),
   conditionalPanel(
     condition = "input.distribution=='binomial'",
@@ -317,7 +349,9 @@ server <- function(input, output) {
     if (input$distribution == 'bernoulli') {
       dist_vec <- rbinom(population_size, size = 1, prob = input$prob)
     } else if (input$distribution == 'bimodal') {
-      ## NOT DONE!!!
+      bimodal_vec_1 <- rnorm(population_size, mean = input$mean1, sd = input$sd1)
+      bimodal_vec_2 <- rnorm(population_size, mean = input$mean2, sd = input$sd2)
+      dist_vec = c(bimodal_vec_1, bimodal_vec_2)
     } else if (input$distribution == 'binomial') {
       dist_vec <-
         rbinom(population_size,
@@ -361,5 +395,5 @@ shinyApp(ui = ui, server = server)
 ###### confirm parameters of scales for each distribution type (meeting)
 ###### decide on default values for scales (meeting)
 #### Server:
-###### implement bimodal distribution
-###### histogram appearance: y / x axis labels + title and diameters
+###### correct bimodal distribution (meeting)
+###### histogram appearance: y / x axis labels + title and diameters (meeting)
