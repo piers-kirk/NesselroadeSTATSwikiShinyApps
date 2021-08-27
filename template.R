@@ -393,7 +393,43 @@ shinyApp(ui = ui, server = server)
 ## ToDos:
 #### UI:
 ###### confirm parameters of scales for each distribution type (meeting)
-###### decide on default values for scales (meeting)
+######## means: 100, sd: 50 
+
+###### decide on default values for scales (meeting) // ALSO MAKE UI ALLOW FOR USER INPUT TO TYPE NUMBER 
 #### Server:
 ###### correct bimodal distribution (meeting)
-###### histogram appearance: y / x axis labels + title and diameters (meeting)
+###### histogram appearance: y / x axis labels + title and diameters (meeting) --- SEE BELOW 
+
+## discrete (limit at 1)
+## DO JUST FOR DISCRETE: bernoulli, binomial, poisson, uniform (if you want)
+## y axis - probability  
+## take nums on y axis (freq) and divide by pop size -- only for pop dist 
+
+## making discrete random variable proper variables - describing in terms of probabilities 
+
+## continuous random variables (no limit)
+
+## graphiing calculator - normal dis - sd/va=0.0001
+## dirac delta 
+
+
+## discrete (limit at 1) vs. continuous random variables (no limit)
+
+
+### TODO 
+### under pop distr:
+#### pop standard deviation = 
+#### pop mean = 
+
+
+#### under sample 
+#### standard deviation = 
+#### sample mean = 
+
+### add 1 more distribution to menu call is power law : 
+### power law dist: (read up on power laws) 2 params 1.) lower bound 2.) alpha - exponent(for small alphas the mean doesnt exist - but as u take larger samples mean diverges)
+### first (indicates exponent) moment: mean - second moment: variance (cental moments)
+### higher order moments 
+### third moment: skewness - fourth moment: kurtosis 
+### implicit exponent -
+
